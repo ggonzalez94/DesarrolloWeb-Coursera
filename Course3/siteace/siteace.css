@@ -1,0 +1,11 @@
+/* CSS declarations go here */
+.hidden_div{
+	display:none;
+}
+#login{
+	margin-top: 15px;
+}
+#searchbox{
+	margin-top: 15px;
+	margin-right: 50px;
+}

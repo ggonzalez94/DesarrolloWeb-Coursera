@@ -1,0 +1,27 @@
+<template name="detail">
+  <h1>{{webSite.title}}</h1>
+<p>
+  {{webSite.description}}
+</p>
+{{#if currentUser}}
+<h2>Comments</h2>
+<form id='commentForm'>
+  <div class="input-group">
+  <input type="text" class="form-control" placeholder="{{i18n 'detail_comment_placeholder'}}" id="comment-box">
+  <span class="input-group-btn">
+    <button type="submit" name="search" id="comment-button" class="btn "><i class="fa fa-send"></i></button>
+  </span>
+  </div>
+</form>
+{{#each comments}}
+  <div class='box-comment'>
+    <div class='comment-text'>
+      <span class="username">
+        {{userName}}
+      </span><!-- /.username -->
+      {{comment}}
+    </div><!-- /.comment-text -->
+  </div><!-- /.box-comment -->
+{{/each}}
+{{/if}}
+</template>

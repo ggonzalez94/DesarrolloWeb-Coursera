@@ -1,0 +1,23 @@
+<head>
+  <title>ChatUp</title>
+</head>
+
+<body>
+</body>
+
+<!-- this is the main template used by iron:router to build the page -->
+<template name="ApplicationLayout">
+  
+  	{{> yield "header"}}
+    <div class="container-fluid">
+    {{> yield "metadata"}}
+  	{{> yield "main"}}
+    {{> yield "footer"}}
+  </div>
+</template>
+
+
+
+
+
+

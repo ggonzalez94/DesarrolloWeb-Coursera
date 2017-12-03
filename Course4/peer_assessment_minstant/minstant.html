@@ -1,0 +1,133 @@
+<head>
+  <title>minstant</title>
+</head>
+
+<body>
+</body>
+
+<!-- this is the main template used by iron:router to build the page -->
+<template name="ApplicationLayout">
+	{{> yield "header"}}
+
+	<div class="container">
+	{{> yield "main"}}
+	</div>
+</template>
+
+<!-- top level template for the nav bar -->
+<template name="navbar">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        Minstant!
+      </a>
+    </div>
+    <div class="nav navbar-nav">
+    {{> loginButtons}}
+</div>
+  </div>
+</nav>
+</template>
+
+<!-- Top level template for the lobby page -->
+<template name="lobby_page">
+	{{> available_user_list}}
+</template>
+
+<!-- display a list of users -->
+<template name="available_user_list">
+	<h2>Choose someone to chat with:</h2>
+	<div class="row">
+	{{#each users}}
+	{{> available_user}}
+	{{/each}}
+  </div>
+</template>
+
+<!-- display an individual user -->
+<template name="available_user">
+	<div class="col-md-2">
+		<div class="user_avatar">
+			{{#if isMyUser _id}}
+			<div class="bg-success">{{getUsername _id}} (YOU)
+				<br/>
+				<img src="/{{profile.avatar}}" class="avatar_img">
+			</div>
+			{{else}}
+			<a href="/chat/{{_id}}">
+				{{getUsername _id}}
+				<br/>
+				<img src="/{{profile.avatar}}" class="avatar_img">
+			</a>
+			{{/if}}
+		</div>
+	</div>
+</template>
+
+
+<!-- Top level template for the chat page -->
+<template name="chat_page">
+	<h2>Type in the box below to send a message!</h2>
+	<div class="row">
+    <!--Chat displaying the messages  -->
+		<div class="col-md-6">
+			<div class="well well-lg">
+			{{#each messages}}
+        {{#emoji}}
+			     {{> chat_message}}
+        {{/emoji}}
+			{{/each}}
+			</div>
+		</div>
+    <!-- /End of messages -->
+    <!--Display the avatars  -->
+      {{#each ChatUser}}
+      <div class="col-md-3 user_avatar">
+      {{profile.username}}
+				<br/>
+				<img src="/{{profile.avatar}}" class="avatar_img">
+      </div>
+      {{/each}}
+    <!--/End of avatars  -->
+	</div>
+  <br/>
+  <br/>
+
+  <div class = "row">
+    <div class = "col-md-10">
+      <form class="js-send-chat">
+        <div class="input-group">
+          <input class="form-control" id = "input_message" type="text" name="chat" placeholder="type a message here...">
+          <div class="input-group-btn">
+            {{>dropdown_emoji}}
+            <button class="btn btn-primary">Send!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<!-- simple template that displays a message -->
+<template name="chat_message">
+	someone said: {{text}}
+	<br>
+</template>
+
+<template name="dropdown_emoji">
+  <!-- drop down list -->
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">Emojis<span class="caret"></span></button>
+
+    <ul class="dropdown-menu dropdown-menu-right">
+      {{#each emoticon}}
+        {{#emoji}}
+          <li class = "col-md-1 js-select-emoji">
+            :{{alias}}:
+          </li>
+          {{/emoji}}
+      {{/each}}
+    </ul>
+  <!-- end drop down list -->
+</template>

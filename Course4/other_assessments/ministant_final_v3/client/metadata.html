@@ -1,0 +1,31 @@
+<template name="metadata">
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">First Time User?</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">First Time User?</h4>
+      </div>
+      <div class="modal-body">
+        <p>To begin chatting, please sign in as one of the four characters below:</p>
+        <ul>
+          <li>bunny@test.com</li>
+          <li>cat@test.com</li>
+          <li>panda@test.com</li>
+          <li>penguin@test.com</li>
+        </ul>
+        <p>The password for all users is test123. You can also create your own account. To test the chatting function, open another browser and launch localhost:3000 and sign in as a different user to check if you can chat with the current user you are signed in as.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>

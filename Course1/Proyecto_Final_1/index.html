@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Blooming</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet"
+    href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="myScript.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+    <!--
+       Adds a navigation bar with 2 links included to outside pages.
+       The format is handled with Bootstrap
+    -->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Home</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.club-blooming.com">Oficial Website</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Club_Blooming">Wikipedia Page</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <h1>Get to know Blooming</h1>
+      <div class="row">
+        <!--
+           Menu for selecting images
+        -->
+        <div class="col-md-3">
+          <ul class="list-group scrollable">
+            <li class="list-group-item image-thumbnail" id=imagen1>Sede</li>
+            <li class="list-group-item image-thumbnail" id="imagen2">Primer equipo</li>
+            <li class="list-group-item image-thumbnail" id="imagen3">Titulos</li>
+            <li class="list-group-item image-thumbnail" id="imagen4">Los chiflados</li>
+          </ul>
+        </div>
+        <!--
+           Space for big image to be displayed
+        -->
+        <div class="col-md-9">
+          <div>
+            <img class="big_image" src="imagen1.jpg">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,100 @@
+/* CSS declarations go here */
+body {
+  background-color: lightgray;
+  color: black;
+}
+
+
+.user_avatar{
+  min-height:100px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+
+}
+.avatar_img{
+  height:75px;
+}
+
+
+.avatar_thumb {
+  height: 30px;
+}
+
+.navbar {
+  background-color: lightblue;
+}
+
+.navbar-header {
+  font-size: 2em;
+}
+
+.text-box {
+  background-color: teal;
+  font-family: monospace;
+  padding: 10px;
+  font-size: 1.5em;
+  border-top: 10px solid white;
+}
+
+.avatar-chat-img {
+  width: 20%;
+  height: 20%;
+  padding: 5px;
+}
+
+.message-box {
+  padding: 10px;
+  height: 50%;
+  width: 85%;
+  border-radius: 10px;
+}
+
+a {
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: orange;
+}
+
+.chatBox {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  padding: 60px;
+}
+
+.userBox {
+  border: 1px solid lightgray;
+  background-color: white;
+  color: black;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+textarea {
+  border-radius: 15px;
+  padding: 10px;
+  width: 50%;
+  height: 100%;
+  border-color: transparent;
+}
+
+.navbar-fixed-bottom {
+  border-radius: 0;
+  z-index: 1030;
+  border-width: 0 0 1px;
+  padding-right: 0;
+  padding-left: 0;
+  margin: 20px 0 0;
+}
+
+.navbar-brand {
+  font-size: 1.2em;
+}

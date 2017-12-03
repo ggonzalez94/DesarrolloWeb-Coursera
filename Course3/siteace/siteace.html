@@ -1,0 +1,143 @@
+<head>
+  <title>siteace</title>
+</head>
+
+<body>
+
+
+</body>
+
+<template name="layout_home">
+{{>yield "navbar"}}
+{{>yield "form"}}
+{{>yield "list"}}
+</template>
+
+<template name = "navbar_template">
+  <!-- navbar  - you will be putting the login functions here -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"> <!--Go back to Home -->
+          Site Ace
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+         <li id = login>
+           {{>loginButtons}}
+         </li>
+       </ul>
+       <ul class="nav navbar-nav navbar-right">
+         <div id= searchbox>
+           {{> EasySearch.Input index=webindex}}
+         </div>
+       </ul>
+    </div>
+  </nav>
+</template>
+
+<template name="website_form">
+	<a class="btn btn-default js-toggle-website-form" href="#">
+  		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	</a>
+	<div id="website_form" class="hidden_div">
+		<form class="js-save-website-form">
+		  <div class="form-group">
+		    <label for="url">Site address</label>
+		    <input type="text" class="form-control" id="url" placeholder="http://www.mysite.com">
+		  </div>
+		  <div class="form-group">
+		    <label for="title">Title</label>
+		    <input type="text" class="form-control" id="title" placeholder="Mysite">
+		  </div>
+		    <div class="form-group">
+		    <label for="description">Description</label>
+		    <input type="text" class="form-control" id="description" placeholder="I found this site really useful for ...">
+		  </div>
+
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+</template>
+
+<!-- template that displays several website items -->
+<template name="website_list">
+	<ol>
+    {{#EasySearch.Each index=webindex}}
+           {{>website_item}}
+    {{/EasySearch.Each}}
+	</ol>
+</template>
+
+<!-- template that displays individual website entries -->
+<template name="website_item">
+<li>
+	<a href="/websites/{{id_actual}}">{{title}}</a> <!--When clicked go to detals page of that webPage-->
+	<p>
+		{{description}}
+	</p>
+  <p>
+    Number of up votes: {{up_vote}}
+  </p>
+  <p>
+    Number of down votes: {{down_vote}}
+  </p>
+  <p>
+    Created on: {{createdOn}}
+  </p>
+	<a href="#" class="btn btn-default js-upvote">
+		<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+	</a>
+	<a href="#" class="btn btn-default js-downvote">
+		<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+	</a>
+	<!-- you will be putting your up and down vote buttons in here! -->
+</li>
+</template>
+<!--Template for details page when clicking on a link  -->
+<template name ="details_page">
+  <div class="table-responsive">
+    <table class="table">
+     <tbody>
+       <tr>
+         <td>Title</td>
+         <td>{{title}}</td>
+       </tr>
+       <tr>
+         <td>Description</td>
+         <td>{{description}}</td>
+       </tr>
+       {{#each comments}}
+       <tr>
+         <td>Comment</td>
+         <td>{{.}}</td> <!--Get the current item in array -->
+       </tr>
+       {{/each}}
+       <tr>
+         <td>UpVotes</td>
+         <td>{{up_vote}}</td>
+       </tr>
+       <tr>
+         <td>Downvotes</td>
+         <td>{{down_vote}}</td>
+       </tr>
+       <tr>
+         <td>Created on</td>
+         <td>{{createdOn}}</td>
+       </tr>
+     </tbody>
+   </table>
+   <form role="form" class="js-save-comment-form">
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <input type="comment" class="form-control" id="comment" placeholder="Enter comment">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  </div>
+
+</template>
+
+<template name = "empty_template">
+
+</template>
